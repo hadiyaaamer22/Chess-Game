@@ -78,3 +78,56 @@ void Board::display()const
     cout<<"    a  b  c  d  e  f  g  h"<<endl;
     cout<<endl;
 }
+bool Board::movePiece(int fr,int fc,int tr,int tc,char currentTurn)
+{
+    if(fr<0||fr>7||fc<0||fc>7||tr<0||tr>7||tc<0||tc>7)
+    {
+        cout<<"Out of bounds!"<<endl;
+        return false;
+    }
+
+    Piece* src=grid[fr][fc];
+
+    if(src==nullptr)
+    {
+        cout<<"No piece at that square!"<<endl;
+        return false;
+    }
+
+    if(src->getColor()!=currentTurn)
+    {
+        cout<<"That is not your piece!"<<endl;
+        return false;
+    }
+
+    if(!src->isValidMove(fr,fc,tr,tc,grid))
+    {
+        cout<<"Invalid move for this piece!"<<endl;
+        return false;
+    }
+
+    if(grid[tr][tc]!=nullptr)
+    {
+        char enemyKing=(currentTurn=='W')?'k':'K';
+
+        if(grid[tr][tc]->getSymbol()==enemyKing)
+        {
+            cout<<endl;
+            cout<<(currentTurn=='W'?"White":"Black")<<" captured the King. Game over!"<<endl;
+
+            delete grid[tr][tc];
+            grid[tr][tc]=src;
+            grid[fr][fc]=nullptr;
+
+            display();
+            exit(0);
+        }
+    }
+
+    delete grid[tr][tc];
+    grid[tr][tc]=src;
+    grid[fr][fc]=nullptr;
+
+    return true;
+}
+

@@ -148,3 +148,16 @@ public:
         return board[tr][tc]==nullptr||board[tr][tc]->getColor()!=color;
     }
 };
+class King:public Piece
+{
+public:
+    King(char c):Piece(c,c=='W'?'K':'k'){}
+
+    bool isValidMove(int fr,int fc,int tr,int tc,Piece* board[8][8])const override
+    {
+        if(abs(tr-fr)>1||abs(tc-fc)>1)
+            return false;
+
+        return board[tr][tc]==nullptr||board[tr][tc]->getColor()!=color;
+    }
+};

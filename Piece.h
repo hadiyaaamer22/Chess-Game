@@ -90,3 +90,61 @@ public:
         return board[tr][tc]==nullptr||board[tr][tc]->getColor()!=color;
     }
 };
+class Bishop:public Piece
+{
+public:
+    Bishop(char c):Piece(c,c=='W'?'B':'b'){}
+
+    bool isValidMove(int fr,int fc,int tr,int tc,Piece* board[8][8])const override
+    {
+        if(abs(tr-fr)!=abs(tc-fc))
+            return false;
+
+        int rs=(tr>fr)?1:-1;
+        int cs=(tc>fc)?1:-1;
+        int r=fr+rs;
+        int c=fc+cs;
+
+        while(r!=tr||c!=tc)
+        {
+            if(board[r][c]!=nullptr)
+                return false;
+
+            r+=rs;
+            c+=cs;
+        }
+
+        return board[tr][tc]==nullptr||board[tr][tc]->getColor()!=color;
+    }
+};
+
+class Queen:public Piece
+{
+public:
+    Queen(char c):Piece(c,c=='W'?'Q':'q'){}
+
+    bool isValidMove(int fr,int fc,int tr,int tc,Piece* board[8][8])const override
+    {
+        bool st=(fr==tr||fc==tc);
+        bool dg=(abs(tr-fr)==abs(tc-fc));
+
+        if(!st&&!dg)
+            return false;
+
+        int rs=(tr>fr)?1:(tr<fr)?-1:0;
+        int cs=(tc>fc)?1:(tc<fc)?-1:0;
+        int r=fr+rs;
+        int c=fc+cs;
+
+        while(r!=tr||c!=tc)
+        {
+            if(board[r][c]!=nullptr)
+                return false;
+
+            r+=rs;
+            c+=cs;
+        }
+
+        return board[tr][tc]==nullptr||board[tr][tc]->getColor()!=color;
+    }
+};

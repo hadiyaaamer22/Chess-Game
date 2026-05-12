@@ -19,7 +19,7 @@ Game::Game() {
 void Game::printTitle() const {
     cout << "\n";
     cout << COLOR_TITLE << "  ║          CHESS GAME IN C++           ║\n" << RESET;
-    cout << COLOR_TITLE << "  ║   OOP Lab Semester Project - FAST    ║\n" << RESET;
+    cout << COLOR_TITLE << "  ║            OOP Lab Semester Project   ║\n" << RESET;
     cout << "\n";
     cout << COLOR_INFO << "  HOW TO PLAY:\n" << RESET;
     cout << "  Enter moves like:  " << BOLD << "e2 e4" << RESET

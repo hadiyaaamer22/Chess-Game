@@ -1,72 +1,41 @@
-# Chess-Game
+# Chess Game
 
-OOP Semester Project
+## OOP Semester Project
 
-This is a simple console-based chess game in C++ made using Object-Oriented Programming.
+A two-player graphical Chess Game developed in C++ using the SFML Graphics Library.
+
+This project was created to apply Object-Oriented Programming concepts in a real game-based system. It includes proper chess piece movement, board rendering, move validation, check detection, checkmate detection, pawn promotion, and visual highlighting.
+
+---
+
+## Built With
+
+- C++
+- SFML 3.x
+- Visual Studio 
+
+---
 
 ## Features
 
-- Two-player chess game
-- Proper chess piece movement rules
-- Board display in console
-- Turn switching
+- Graphical 8x8 chess board
+- Two-player chess gameplay
+- Mouse-based piece selection
+- Legal movement rules for all pieces
+- Valid move highlighting
+- Capture move highlighting
+- King-in-check highlighting
 - Check detection
 - Checkmate detection
-- Stalemate detection
-- Pawn promotion
-- Last move highlight
-- Help and quit commands
-- Colored console display
+- Pawn promotion to Queen
+- Game-over winner display
+- SFML texture-based piece rendering
 
-## Files
+---
 
-- `chess.h` contains all class declarations for pieces, board, and game
-- `chess.cpp` contains all chess piece movement rules and board functions
-- `chess_main.cpp` contains the game loop and main function
+## Project Files
 
-## How to Run
-
-Compile `chess.cpp` and `chess_main.cpp` together.
-
-In Visual Studio, add all three files to the project:
-
-- `chess.h`
-- `chess.cpp`
-- `chess_main.cpp`
-
-Make sure both `.cpp` files are inside Source Files.
-
-Then build and run the project.
-
-## How to Play
-
-Enter moves like this:
-
-e2 e4
-
-The first position is the piece you want to move, and the second position is where you want to move it.
-
-Type `help` to see instructions again.
-
-Type `quit` to exit the game.
-
-## OOP Concepts Used
-
-- Classes and objects
-- Inheritance
-- Polymorphism
-- Encapsulation
-- Composition
-
-## Bonus Tasks
-
-- Check detection
-- Checkmate detection
-- Stalemate detection
-- Pawn promotion
-- Colored board display
-- Last move highlight
-
-## Conclusion
-
-This project helped us understand OOP concepts by applying them in a real chess game. It uses separate classes for pieces, board, and game control, making the code easier to manage and understand.
+```txt
+Piece.h
+Piece.cpp
+main.cpp
